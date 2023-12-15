@@ -1,0 +1,10 @@
+*pom.xml.versionsBackup
+*release.properties
+*pom.xml.releaseBackup
+**/target
+.classpath
+*.project
+*.settings
+*.factorypath
+**/bin
+.~*
