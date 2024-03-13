@@ -1,3 +1,4 @@
+
 package com.azserve.academy.java.jdbc.model;
 
 import java.sql.Connection;
@@ -86,6 +87,18 @@ public class ItemService {
 			try (ResultSet rs = statement.executeQuery()) {
 				while (rs.next()) {
 					result.add(new Item(rs.getInt("id"), rs.getString("code"), rs.getString("description")));
+				}
+			}
+			return result;
+		}
+	}
+
+	public List<Integer> searchAllItemId() throws SQLException {
+		try (final PreparedStatement statement = this.connection.prepareStatement("select id from item")) {
+			final List<Integer> result = new ArrayList<>();
+			try (final ResultSet rs = statement.executeQuery()) {
+				while (rs.next()) {
+					result.add(new Integer(rs.getInt("id")));
 				}
 			}
 			return result;
